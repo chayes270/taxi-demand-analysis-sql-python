@@ -19,7 +19,7 @@ The analysis uses four relational tables:
 - **neighborhoods** — neighborhood identifiers and names
 - **weather_records** — hourly weather observations
 
-Weather conditions were connected to trips by matching trip start timestamps with weather record timestamps.
+Relevant trip fields include ride start time, end time, duration, distance, pickup location, and drop-off location. Weather conditions were connected to trips by matching trip start timestamps with weather record timestamps.
 
 ## Tools and Technologies
 
@@ -30,6 +30,38 @@ Weather conditions were connected to trips by matching trip start timestamps wit
 - **Seaborn**
 - **SciPy**
 - **Jupyter Notebook**
+
+## Methodology
+
+### SQL Analysis
+
+The SQL portion of the project was used to answer several market and operational questions:
+
+- count the number of taxi rides for each company on **November 15–16, 2017**
+- count rides for companies whose names contain **"Yellow"** or **"Blue"** on **November 1–7, 2017**
+- group **Flash Cab**, **Taxi Affiliation Services**, and all remaining companies into broader comparison categories
+- retrieve the neighborhood identifiers for the **Loop** and **O’Hare**
+- classify hourly weather conditions as **Good** or **Bad** using a `CASE` statement
+- join weather data to Saturday rides from the **Loop** to **O’Hare** and retrieve trip duration for hypothesis testing
+
+### Python Analysis
+
+The Python portion of the project focused on:
+
+- importing and reviewing the extracted datasets
+- checking data structure and data types
+- identifying the **top 10 neighborhoods** by average drop-offs
+- creating visualizations for taxi company ride counts
+- creating visualizations for top neighborhoods by drop-offs
+- drawing conclusions from the observed patterns
+
+### Hypothesis Testing
+
+The final stage of the project tested whether the **average duration of rides from the Loop to O’Hare changes on rainy Saturdays**. The dataset used for this test included:
+
+- `start_ts`
+- `weather_conditions`
+- `duration_seconds`
 
 ## Files
 
@@ -42,12 +74,12 @@ Weather conditions were connected to trips by matching trip start timestamps wit
 
 - competitor ride volume by taxi company
 - top neighborhoods by average drop-offs
-- weather classification for Saturday rides
+- weather classification for ride records
 - hypothesis testing on Loop-to-O’Hare trip duration under different weather conditions
 
 ## Results
 
-This project demonstrates an end-to-end analytics workflow combining SQL and Python to answer business questions using transportation data. It highlights experience with relational querying, exploratory analysis, visualization, and statistical testing.
+This project demonstrates an end-to-end analytics workflow combining SQL and Python to answer business questions using transportation data. It highlights experience with relational querying, exploratory analysis, visualization, and statistical testing in a business-focused setting.
 
 ## Status
 
