@@ -1,65 +1,54 @@
-# Zuber Taxi Demand Analysis
+# Taxi Demand Analysis Using SQL and Python
 
-This project analyzes ride request patterns for **Zuber**, a fictional ride-hailing startup, with the goal of identifying opportunities to optimize driver distribution during a local festival in Chicago. Using SQL for database queries and Python for exploratory analysis and visualization, this project identifies how weather and temporal trends affect demand.
+This project analyzes Chicago taxi trip data for **Zuber**, a fictional ride-sharing company preparing to enter the Chicago market. Using **SQL** for data extraction and preparation and **Python** for exploratory analysis, visualization, and hypothesis testing, the project evaluates competitor ride volume, neighborhood-level demand, and the effect of weather on trip duration.
 
----
+## Business Context
 
-## 📊 Project Objective
+Zuber is evaluating expansion into Chicago and needs data-driven insight into the local transportation market. This project focuses on three main questions:
 
-Zuber is considering expanding operations in a small town in Chicago. To make informed business decisions, they need insights into when and where ride demand increases. Your task was to investigate patterns in trip data during a special event month (November 2017) to advise on resource allocation.
+1. Which taxi companies handled the most rides during selected periods in November 2017?
+2. Which Chicago neighborhoods had the highest average number of drop-offs?
+3. Did rainy weather affect trip duration for rides from the **Loop** to **O’Hare International Airport** on Saturdays?
 
----
+## Dataset
 
-## 🧰 Tools & Technologies
+The analysis uses four relational tables:
 
-- **SQL** (PostgreSQL) – data extraction and aggregation
-- **Python** – data analysis and visualization
-- **Pandas**, **Matplotlib**, **Seaborn**
-- **Jupyter Notebook** – code and results presentation
+- **cabs** — taxi company information
+- **trips** — trip-level ride data
+- **neighborhoods** — neighborhood identifiers and names
+- **weather_records** — hourly weather observations
 
----
+Weather conditions were connected to trips by matching trip start timestamps with weather record timestamps.
 
-## 📁 Files Included
+## Tools and Technologies
 
-| File | Description |
-|------|-------------|
-| `EDA_with_SQL.ipynb` | Main analysis notebook combining SQL and Python |
-| `SQL_project.sql` | SQL queries used for data extraction |
-| `Festival News.pdf` | Context about the festival's timing |
-| `Zuber_description.pdf` | Bootcamp prompt rewritten for this repo |
-| [Chicago Weather HTML Table](https://practicum-content.s3.us-west-1.amazonaws.com/data-analyst-eng/moved_chicago_weather_2017.html) | External dataset used to supplement the analysis |
+- **SQL (PostgreSQL)**
+- **Python**
+- **Pandas**
+- **Matplotlib**
+- **Seaborn**
+- **SciPy**
+- **Jupyter Notebook**
 
----
+## Files
 
-## 🔍 Key Insights
+- `taxi-demand-analysis.ipynb` — main notebook containing analysis, visualizations, and hypothesis testing
+- `taxi-demand-queries.sql` — SQL queries used to extract and prepare the data
+- `chicago-weather-records-nov-2017.pdf` — supporting weather reference file
+- `README.md` — project overview and documentation
 
-- Demand was highest on weekends and weekday evenings.
-- Cold temperatures and low cloud cover correlated with higher ride volume.
-- Festival dates showed a significant uptick in ride requests, particularly during evening hours.
+## Key Analysis Areas
 
----
+- competitor ride volume by taxi company
+- top neighborhoods by average drop-offs
+- weather classification for Saturday rides
+- hypothesis testing on Loop-to-O’Hare trip duration under different weather conditions
 
-## 📦 Project Structure
+## Results
 
-```
-zuber-taxi-demand-analysis/
-│
-├── EDA_with_SQL.ipynb        # Notebook with Python + SQL
-├── SQL_project.sql           # SQL queries
-├── Festival News.pdf         # Event context
-├── Zuber_description.pdf     # Project background
-└── README.md                 # This file
-```
+This project demonstrates an end-to-end analytics workflow combining SQL and Python to answer business questions using transportation data. It highlights experience with relational querying, exploratory analysis, visualization, and statistical testing.
 
----
+## Status
 
-## 🧠 About the Author
-
-Cody Hayes – Data Scientist with a B.S.A. in Mathematics and certificates in Data Science and Computer Science. Passionate about using data to solve real-world problems.  
-[GitHub Portfolio](https://github.com/chayes270)
-
----
-
-## ✅ Status
-
-Project complete. No further development is planned, though feedback and suggestions are welcome!
+Completed.
