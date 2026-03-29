@@ -21,6 +21,11 @@ The analysis uses four relational tables:
 
 Relevant trip fields include ride start time, end time, duration, distance, pickup location, and drop-off location. Weather conditions were connected to trips by matching trip start timestamps with weather record timestamps.
 
+The repository also includes exported CSV files used in the notebook:
+- `moved_project_sql_result_01.csv` — taxi company ride counts
+- `moved_project_sql_result_04.csv` — average drop-offs by neighborhood
+- `moved_project_sql_result_07.csv` — Loop-to-O’Hare Saturday rides with weather conditions and trip duration
+
 ## Tools and Technologies
 
 - **SQL (PostgreSQL)**
@@ -50,6 +55,7 @@ The Python portion of the project focused on:
 
 - importing and reviewing the extracted datasets
 - checking data structure and data types
+- identifying and removing duplicate records in the airport rides dataset
 - identifying the **top 10 neighborhoods** by average drop-offs
 - creating visualizations for taxi company ride counts
 - creating visualizations for top neighborhoods by drop-offs
@@ -63,28 +69,37 @@ The final stage of the project tested whether the **average duration of rides fr
 - `weather_conditions`
 - `duration_seconds`
 
+An independent two-sample t-test was used to compare ride duration under rainy and non-rainy conditions.
+
 ## Visualizations
 
 ### Top 10 Taxi Companies by Ride Count
 ![Top 10 Taxi Companies by Ride Count](images/top_10_taxi_companies.png)
 
+A small number of companies accounted for a large share of rides, with **Flash Cab** leading the market during the selected period.
+
 ### Top 10 Neighborhoods by Average Drop-offs
 ![Top 10 Neighborhoods by Average Drop-offs](images/top_10_taxi_neighborhoods.png)
 
+Demand was concentrated in major commercial and high-traffic areas, especially the **Loop**, **River North**, **Streeterville**, and **West Loop**.
+
 ## Key Findings
 
-- **Flash Cab** recorded the highest ride count during November 15–16, 2017, followed by **Taxi Affiliation Services** and **Medallion Leasing**.
-- Among companies with **"Yellow"** or **"Blue"** in their names, **Yellow Cab** and **Taxi Affiliation Service Yellow** had the highest ride totals during November 1–7, 2017.
-- The neighborhoods with the highest average drop-offs were **Loop**, **River North**, **Streeterville**, and **West Loop**, indicating concentrated demand in major commercial and high-traffic areas.
-- Weather conditions were associated with statistically significant differences in ride duration for Saturday trips from the **Loop** to **O’Hare**.
+- **Flash Cab** recorded the highest ride count with **19,558 rides** during November 15–16, 2017, followed by **Taxi Affiliation Services** with **11,422** and **Medallion Leasing** with **10,367**.
+- Among companies with **"Yellow"** or **"Blue"** in their names during November 1–7, 2017, **Yellow Cab** led with **33,668 rides**, followed by **Taxi Affiliation Service Yellow** with **29,213**, **Blue Ribbon Taxi Association Inc.** with **17,675**, and **Blue Diamond** with **6,764**.
+- In the grouped company comparison, **Other** accounted for **335,771 rides**, compared with **64,084** for **Flash Cab** and **37,583** for **Taxi Affiliation Services**, indicating that the broader market was fragmented even though a few firms stood out.
+- The highest-demand neighborhoods by average drop-offs were **Loop (10,727.47)**, **River North (9,523.67)**, **Streeterville (6,664.67)**, and **West Loop (5,163.67)**. The average across all neighborhoods was about **4,324.99**, meaning the top four neighborhoods were well above the overall level.
+- The airport rides dataset originally contained **1,068 rows**; after removing duplicates, **871 unique rides** remained for analysis.
+- For Saturday rides from the **Loop** to **O’Hare**, the hypothesis test returned a **t-statistic of 5.428** and a **p-value of 7.40e-08**, indicating a statistically significant difference in trip duration between rainy and non-rainy conditions.
 
 ## Business Impact
 
-This project shows how SQL and Python can be combined to support transportation and operations analysis. The findings suggest that:
+This project demonstrates how SQL and Python can be used together to support transportation and operations analysis. The results suggest that:
 
 - a small number of taxi companies accounted for a large share of rides
 - demand was concentrated in a handful of key neighborhoods
-- weather conditions should be considered in trip planning and operational forecasting
+- weather conditions were associated with meaningful differences in trip duration on the Loop-to-O’Hare route
+- market-entry and driver-positioning decisions would benefit from focusing on high-demand commercial areas and external demand drivers such as weather
 
 ## Files
 
