@@ -42,9 +42,9 @@ Weather conditions were connected to trips by matching trip start timestamps wit
 
 The repository also includes exported CSV files used in the notebook:
 
-- `data/project_sql_result_01.csv` — taxi company ride counts
-- `data/project_sql_result_04.csv` — average drop-offs by neighborhood
-- `data/project_sql_result_07.csv` — Saturday Loop-to-O’Hare rides with weather conditions and trip duration
+- `data/moved_project_sql_result_01.csv` — taxi company ride counts
+- `data/moved_project_sql_result_04.csv` — average drop-offs by neighborhood
+- `data/moved_project_sql_result_07.csv` — Saturday Loop-to-O’Hare rides with weather conditions and trip duration
 
 ## Tools and Technologies
 
